@@ -3,8 +3,13 @@ import time
 import random
 from resolution import *
 
+# Module 'resolution' contains screen resolution
+# Let's add colors to turtles
+
 COLORS = ['red', 'green', 'blue', 'cyan', 'yellow',
           'pink', 'black', 'orange', 'purple', 'brown']
+
+# Getting the number of racers
 
 
 def get_number_of_racers():
@@ -21,6 +26,8 @@ def get_number_of_racers():
         else:
             print('Number is not in range, try again')
 
+# Setting speed and win condition
+
 
 def race(colors):
     turtles = create_turtles(colors)
@@ -30,9 +37,11 @@ def race(colors):
             path = random.randrange(1, 20)
             racer.forward(path)
 
-            x,y = racer.pos()
+            x, y = racer.pos()
             if y >= HEIGHT//2 - 15:
                 return colors[turtles.index(racer)]
+
+# Setting starter positions
 
 
 def create_turtles(colors):
@@ -49,13 +58,15 @@ def create_turtles(colors):
         turtles.append(racer)
     return turtles
 
+# Screen settings
+
 
 def Screen_related():
     screen = turtle.Screen()
     screen.setup(WIDTH, HEIGHT)
     screen.title('Turtle racing')
 
- 
+# And that's it
 racers = get_number_of_racers()
 Screen_related()
 
